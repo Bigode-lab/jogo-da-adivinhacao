@@ -3,6 +3,10 @@
 
 using namespace std;
 
+double perdaDePontos(int chute, int numeroPerdido){
+    return abs(chute - numeroPerdido)/2.0;
+}
+
 int main(){
     cout << "*************************************" << endl;
     cout << "* Bem-vindos ao jogo da adivinhacao *" << endl;
@@ -14,6 +18,8 @@ int main(){
     int tentaticas = 1;
     int chute = 0;
 
+    double pontos = 1000;
+
     
     while(nao_acertou) {
 
@@ -21,7 +27,9 @@ int main(){
         cout << "Qual o seu chute: ";
         cin >> chute;
         cout << "O valor do chute e: " << chute << endl;
-        
+
+        pontos = pontos - perdaDePontos(chute, NUMERO_SECRETO);
+
         if(chute == NUMERO_SECRETO) {
             cout << "Parabens, voce acertou! O numero secreto e: " << NUMERO_SECRETO << endl;
             nao_acertou = false;
@@ -34,6 +42,6 @@ int main(){
     }
 
     cout << "Fim de jogo!" << endl;
-    cout << "Voce acertou o numero secreto em " << tentaticas << "tentativas" << endl;
-
+    cout << "Voce acertou o numero secreto em " << tentaticas << " tentativas" << endl;
+    cout << "Sua pontuacao foi: " << pontos << " pontos." << endl;
 }
