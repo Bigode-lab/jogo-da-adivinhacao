@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <iostream>
+#include <cstdlib>
+#include<ctime>
 
 using namespace std;
 
@@ -28,7 +30,8 @@ int main(){
         numero_de_tentativas = 5;
     }
 
-    const int NUMERO_SECRETO = 42;
+    srand(time(NULL));
+    const int NUMERO_SECRETO = rand() % 100;
     int chute = 0;
     int tentativas;
     double pontos = 1000;
